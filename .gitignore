@@ -2,4 +2,7 @@
 *.ipr
 *.iws
 .DS_Store
-.gradle
+.gradle/
+.idea/
+build/
+out/
