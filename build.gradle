@@ -8,3 +8,16 @@ subprojects {
   }
 }
 
+task printChildProjects<<{
+  childProjects.each{
+    println it.value.class.name
+  }
+}
+
+task printSubProjects<<{
+  subprojects.each{
+    println it.class.name
+  }
+}
+
+
