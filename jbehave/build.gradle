@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+
+    testCompile 'org.jbehave:jbehave-core:3.9.5'
+    testCompile'de.codecentric:jbehave-junit-runner:1.2.0'
+}
