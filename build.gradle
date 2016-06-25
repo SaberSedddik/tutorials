@@ -1,10 +1,15 @@
-allprojects{
-  apply plugin: "idea"
-}
+apply from: "/Users/saberseddik/projects/tutorials/build/idea.gradle"
 
 subprojects {
+  apply plugin:'idea'
+  apply plugin: 'groovy'
   repositories {
     mavenCentral()
+  }
+  dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+
+    testCompile'de.codecentric:jbehave-junit-runner:1.2.0'
   }
 }
 
@@ -19,5 +24,6 @@ task printSubProjects<<{
     println it.class.name
   }
 }
+
 
 

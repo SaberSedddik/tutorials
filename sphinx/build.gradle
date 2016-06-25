@@ -1,0 +1,4 @@
+task html (type:Exec)  {
+    commandLine 'make','html'
+}
+task clean

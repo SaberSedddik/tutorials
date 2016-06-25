@@ -1,2 +1,3 @@
 rootProject.name = 'tutorials'
-include 'groovy','gradle','jbehave'
+include 'groovy','gradle','jbehave','concordion','java8','markdown','sphinx','checkstyle', 'jacoco'
+include 'jacoco:project1', 'jacoco:project2'

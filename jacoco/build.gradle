@@ -1,0 +1,20 @@
+allprojects {
+    apply plugin: 'jacoco'
+}
+
+task mergedJacoco(type: JacocoMerge) {
+    subprojects.each { subproject ->
+        executionData subproject.tasks.withType(Test)
+    }
+    dependsOn 'project1:jacocoTestReport'
+    dependsOn 'project2:jacocoTestReport'
+}
+
+task mergedReport(type: JacocoReport) {
+    executionData mergedJacoco.destinationFile
+    dependsOn mergedJacoco
+    sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
+    classDirectories = files(subprojects.sourceSets.main.output)
+    //sourceDirectories = files(sourceSets.main.java.srcDirs, sourceSets.otherMain.java.srcDirs)
+    //classDirectories = files(sourceSets.main.output.classesDir, sourceSets.otherMain.output.classesDir)
+}
