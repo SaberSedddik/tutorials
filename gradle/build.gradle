@@ -1,4 +1,5 @@
 apply plugin: 'java'
+
 sourceSets {
     integrationTest {
         java {
@@ -6,16 +7,17 @@ sourceSets {
             runtimeClasspath += main.output + test.output
             srcDir 'src/integration-test/java'
         }
-        resources{
+        resources {
             srcDir 'src/integration-test/resources'
         }
     }
 }
-repositories{
+
+repositories {
     mavenCentral()
 }
 
-dependencies{
+dependencies {
     testCompile 'junit:junit:4.4'
 }
 
@@ -34,4 +36,10 @@ integrationTest.mustRunAfter test
 
 tasks.withType(Test) {
     reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+apply plugin: 'greeting'
+
+greeting{
+    message = 'Hello from saber'
 }
